@@ -3,7 +3,7 @@ class Artist
 
     @@all = []
 
-    attr_accessor :name#, :artist, :genre
+    attr_accessor :name
 
     def initialize(name)
         @name = name
@@ -20,22 +20,16 @@ class Artist
     end
 
     def songs
-        #binding.pry
         Song.all.select do |song|
-            binding.pry
             song.artist == self
-            #binding.pry
         end
     end
 
     def genres
-        # all_genres = []
-        # songs.map do |song|
-        #     all_genres << song.genre
-        # end
-        # all_genres
-    
+        all_genres = []
+        songs.map do |song|
+            all_genres << song.genre
+        end
+        all_genres
     end
-
-
 end
